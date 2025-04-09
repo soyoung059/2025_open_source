@@ -1,4 +1,4 @@
-# 함수 안쪽 코드 개선 (3번 소계 라인. 반복문)
+# 유저 인터페이스 개선 (몇 잔 주문 제거)
 
 def select_menu(i):
     menus[i][1] = menus[i][1] + 1
@@ -7,23 +7,20 @@ def select_menu(i):
     for j in range(len(menus)):
         subtotal = subtotal + (prices[j] * menus[j][1])
     print(f"소계 : {subtotal}")
-    # print(f"소계 : {(prices[0] * menus[0][1])
-    #               + (prices[1] * menus[1][1])
-    #               + (prices[2] * menus[2][1])
-    #               + (prices[3] * menus[3][1])}원")
 
 
 menus = [["아이스 아메리카노", 0], ["카페 라떼", 0], ["유자차", 0], ["자바칩 프라푸치노", 0]]  # [[메뉴, 수량], ...]
 prices = [2000, 2500, 2400, 7000]
 
-amount = int(input("몇 잔? "))
+#amount = int(input("몇 잔? "))
 
 menu_lists = ""
 for i in range(len(menus)):
     menu_lists = menu_lists + f"{i+1}) {menus[i][0]} "
 
-for _ in range(amount):
-    menu = input(f"{menu_lists}: ")
+#for _ in range(amount):
+while True:
+    menu = input(f"{menu_lists}{len(menus)+1}) 주문 종료 : ")
     if menu == "1":
         select_menu(0)
     elif menu == "2":
@@ -32,6 +29,9 @@ for _ in range(amount):
         select_menu(2)
     elif menu == "4":
         select_menu(3)
+    elif menu == "5":
+        print("주문을 종료합니다")
+        break
     else:
         print("잘못된 주문입니다")
 
