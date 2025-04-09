@@ -1,9 +1,16 @@
-# 메뉴 선택 하는 코드를 함수화
+# 함수 안쪽 코드 개선 (3번 소계 라인. 반복문)
 
 def select_menu(i):
     menus[i][1] = menus[i][1] + 1
     print(f"{menus[i][0]} {menus[i][1]}잔 주문...")
-    print(f"소계 : {(prices[0] * menus[0][1]) + (prices[1] * menus[1][1]) + (prices[2] * menus[2][1]) + (prices[3] * menus[3][1])}원")
+    subtotal = 0
+    for j in range(len(menus)):
+        subtotal = subtotal + (prices[j] * menus[j][1])
+    print(f"소계 : {subtotal}")
+    # print(f"소계 : {(prices[0] * menus[0][1])
+    #               + (prices[1] * menus[1][1])
+    #               + (prices[2] * menus[2][1])
+    #               + (prices[3] * menus[3][1])}원")
 
 
 menus = [["아이스 아메리카노", 0], ["카페 라떼", 0], ["유자차", 0], ["자바칩 프라푸치노", 0]]  # [[메뉴, 수량], ...]
