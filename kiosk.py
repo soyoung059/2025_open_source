@@ -1,6 +1,4 @@
-# 영수증 기능 추가
-# 품명 / 단가 / 수량 / 소계금액
-# 총 금액
+# 영수증 개선 (문자열 포맷팅. f-string)
 
 def select_menu(i):
     menus[i][1] = menus[i][1] + 1
@@ -35,12 +33,12 @@ while True:
         print("잘못된 주문입니다")
 
 
-print("======================")
-print("품명 / 단가 / 수량 / 금액")
+print("=" * 38)
+#print("품명\n단가 / 수량 / 금액")
 total_price = 0
 for j in range(len(menus)):
     if menus[j][1] > 0:  # 각 메뉴들의 수량이 1 이상이면
-        print(f"{menus[j][0]}/{prices[j]}/{menus[j][1]}/{menus[j][1]* prices[j]}")
+        print(f"품명: {menus[j][0]}\n\t단가: {prices[j]} / 수량: {menus[j][1]:2} / 금액: {menus[j][1]* prices[j]:6}")
         total_price = total_price + (menus[j][1]* prices[j])  # 가격 리스트에서 가격 추출해서 합산
 
 print(f"총 금액은 {total_price}원 입니다.")
