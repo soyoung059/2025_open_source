@@ -1,4 +1,6 @@
-# 유저 인터페이스 개선 (몇 잔 주문 제거)
+# 영수증 기능 추가
+# 품명 / 단가 / 수량 / 소계금액
+# 총 금액
 
 def select_menu(i):
     menus[i][1] = menus[i][1] + 1
@@ -12,13 +14,10 @@ def select_menu(i):
 menus = [["아이스 아메리카노", 0], ["카페 라떼", 0], ["유자차", 0], ["자바칩 프라푸치노", 0]]  # [[메뉴, 수량], ...]
 prices = [2000, 2500, 2400, 7000]
 
-#amount = int(input("몇 잔? "))
-
 menu_lists = ""
 for i in range(len(menus)):
     menu_lists = menu_lists + f"{i+1}) {menus[i][0]} "
 
-#for _ in range(amount):
 while True:
     menu = input(f"{menu_lists}{len(menus)+1}) 주문 종료 : ")
     if menu == "1":
@@ -36,10 +35,12 @@ while True:
         print("잘못된 주문입니다")
 
 
+print("======================")
+print("품명 / 단가 / 수량 / 금액")
 total_price = 0
 for j in range(len(menus)):
     if menus[j][1] > 0:  # 각 메뉴들의 수량이 1 이상이면
+        print(f"{menus[j][0]}/{prices[j]}/{menus[j][1]}/{menus[j][1]* prices[j]}")
         total_price = total_price + (menus[j][1]* prices[j])  # 가격 리스트에서 가격 추출해서 합산
 
 print(f"총 금액은 {total_price}원 입니다.")
-#print(f"총 금액은 {(menus[0][1] * 2000) + (menus[1][1] * 2500) + (menus[2][1] * 2400)}원 입니다.")
