@@ -42,3 +42,4 @@ for j in range(len(menus)):
         total_price = total_price + (menus[j][1]* prices[j])  # 가격 리스트에서 가격 추출해서 합산
 
 print(f"총 금액은 {total_price}원 입니다.")
+
