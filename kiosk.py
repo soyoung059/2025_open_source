@@ -35,10 +35,14 @@ def get_ticket_number():
     번호표 기능 (파일 입출력)
     :return: 번호
     """
-    with open("ticket.txt", "r") as fp:
-        # print(fp.read())
-        number = int(fp.read()) + 1
-        # print(number)
+    try:
+        with open("ticket.txt", "r") as fp:
+            number = int(fp.read())
+    except FileNotFoundError:
+        number = 0
+
+    number = number + 1
+
     with open("ticket.txt", "w") as fp:
         fp.write(str(number))
 
