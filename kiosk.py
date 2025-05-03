@@ -67,3 +67,4 @@ while True:
 
 print_receipt()
 print(f"번호표 : {get_ticket_number()}")
+
