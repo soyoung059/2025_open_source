@@ -49,7 +49,7 @@ def get_ticket_number():
     return number
 
 menus = [["아이스 아메리카노", 0, 2000], ["카페 라떼", 0, 2500], ["유자차", 0, 2400], ["자바칩 프라푸치노", 0, 7000]]  # [[메뉴, 수량, 단가], ...]
-#prices = [2000, 2500, 2400, 7000]
+
 
 menu_lists = "".join([f"{i+1}) {menus[i][0]} " for  i in range(len(menus))])
 menu_lists = menu_lists + f"{len(menus)+1}) 주문 종료 : "
